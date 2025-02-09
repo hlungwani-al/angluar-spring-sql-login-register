@@ -1,0 +1,12 @@
+<div class="profile-container">
+  <div class="profile-card">
+    <div class="profile-header">
+      <span class="admin-email">{{ user.email }}</span>
+      <button class="btn btn-primary" (click)="switchRole()">Switch to {{ role === 'BUYER' ? 'Seller' : 'Buyer' }} Mode</button>
+    </div>
+    <div class="profile-info">
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      <p><strong>Role:</strong> {{ role }}</p>
+    </div>
+  </div>
+</div>
