@@ -1,0 +1,25 @@
+<div class="profile-container">
+  <div class="profile-card">
+    <div class="profile-header">
+      <button class="btn btn-primary" (click)="switchRole()">Switch to {{ role === 'BUYER' ? 'Seller' : 'Buyer' }}
+        Mode</button>
+      <button class="btn btn-danger" (click)="signOut()">Sign Out</button>
+    </div>
+    <div class="profile-info">
+      <p><strong>Email:</strong> {{ user?.email }}</p>
+      <p><strong>Role:</strong> {{ role }}</p>
+    </div>
+    <div *ngIf="role === 'BUYER'">
+      <h3>Runner Applications</h3>
+      <ul>
+        <li *ngFor="let application of runnerApplications">
+          User ID: {{ application.userId }} - Status: {{ application.applicationStatus }}
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="role === 'BUYER'">
+      <button class="btn btn-success" (click)="applyToBeRunner()">Apply to be a Runner</button>
+      <p *ngIf="applicationMessage">{{ applicationMessage }}</p>
+    </div>
+  </div>
+</div>

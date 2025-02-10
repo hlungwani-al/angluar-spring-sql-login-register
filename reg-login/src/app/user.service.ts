@@ -25,4 +25,12 @@ export class UserService {
   getUserById(userId: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/${userId}`);
   }
+
+  applyToBeRunner(userId: number): Observable<string> {
+    return this.http.post(`${this.apiUrl}/apply-runner?userId=${userId}`, {}, { responseType: 'text' });
+  }
+
+  getRunnerApplications(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/runner-applications`);
+  }
 }
